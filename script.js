@@ -1,29 +1,30 @@
 // =========================================
 // PAGE NAVIGATION
 // =========================================
-function showPage(currentPage, nextPage) {
 
-    currentPage.classList.add("hidden");
-    nextPage.classList.remove("hidden");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "instant"
-    });
-}
 const pages = document.querySelectorAll(".page");
 
 
 function showPage(pageId) {
 
     pages.forEach(function(page) {
+
         page.classList.add("hidden");
+
     });
 
 
     const pageToShow = document.getElementById(pageId);
 
     pageToShow.classList.remove("hidden");
+
+
+    // Always start the new page at the top
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
 
 }
 
@@ -76,6 +77,19 @@ document
     .addEventListener("click", function() {
 
         showPage("letter");
+
+    });
+
+
+// =========================================
+// LETTER → FINAL ENVELOPE
+// =========================================
+
+document
+    .getElementById("to-final")
+    .addEventListener("click", function() {
+
+        showPage("final");
 
     });
 
