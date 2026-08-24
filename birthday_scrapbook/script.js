@@ -1,7 +1,16 @@
 // =========================================
 // PAGE NAVIGATION
 // =========================================
+function showPage(currentPage, nextPage) {
 
+    currentPage.classList.add("hidden");
+    nextPage.classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+}
 const pages = document.querySelectorAll(".page");
 
 
