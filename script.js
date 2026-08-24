@@ -95,19 +95,6 @@ document
 
 
 // =========================================
-// LETTER → FINAL ENVELOPE
-// =========================================
-
-document
-    .getElementById("to-final")
-    .addEventListener("click", function() {
-
-        showPage("final");
-
-    });
-
-
-// =========================================
 // PHOTO LIGHTBOX
 // =========================================
 
