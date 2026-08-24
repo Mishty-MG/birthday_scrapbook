@@ -1,0 +1,1940 @@
+/* =========================================
+   1. RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   2. DESIGN VARIABLES
+========================================= */
+
+:root {
+    --paper: #f5efdf;
+    --paper-light: #faf6eb;
+
+    --brown: #493b32;
+    --pink: #c98282;
+    --pink-light: #e8c1bc;
+
+    --sage: #9da995;
+    --yellow: #e5c878;
+
+    --shadow: rgba(60, 45, 35, 0.15);
+}
+
+
+/* =========================================
+   3. BODY
+========================================= */
+
+body {
+    min-height: 100vh;
+
+    background: var(--paper);
+
+    color: var(--brown);
+
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* =========================================
+   4. MAIN SCRAPBOOK
+========================================= */
+
+#scrapbook {
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   5. PAGE
+========================================= */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   6. PAGE CONTENT
+========================================= */
+
+.page-content {
+    width: min(900px, 100%);
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   7. HIDDEN PAGES
+========================================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================
+   8. COVER BACKGROUND
+========================================= */
+
+#cover {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(232, 193, 188, 0.35),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(157, 169, 149, 0.28),
+            transparent 25%
+        ),
+
+        var(--paper);
+}
+
+
+/* =========================================
+   9. COVER CONTENT
+========================================= */
+
+#cover .page-content {
+    max-width: 800px;
+
+    padding: 70px 40px;
+}
+
+
+/* =========================================
+   10. SMALL HANDWRITTEN TEXT
+========================================= */
+
+.small-note {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+
+    margin-bottom: 18px;
+
+    transform: rotate(-3deg);
+}
+
+
+/* =========================================
+   11. MAIN TITLE
+========================================= */
+
+h1 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+
+    font-weight: 600;
+
+    line-height: 0.9;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   12. SUBTITLE
+========================================= */
+
+.subtitle {
+    font-size: 0.95rem;
+
+    opacity: 0.65;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   13. BUTTON
+========================================= */
+
+.next-button {
+    border: none;
+
+    background: var(--pink);
+
+    color: white;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px var(--shadow);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.next-button:hover {
+    transform:
+        translateY(-3px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 10px 22px var(--shadow);
+}
+
+
+.next-button:active {
+    transform:
+        translateY(0)
+        rotate(0);
+}
+
+
+/* =========================================
+   14. SCRAPBOOK DECORATIONS
+========================================= */
+
+.scrap {
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   STAR
+========================================= */
+
+.scrap-star {
+    top: 15%;
+    left: 12%;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 3rem;
+
+    color: var(--yellow);
+
+    transform: rotate(15deg);
+
+    animation: gentle-float 4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   HEART
+========================================= */
+
+.scrap-heart {
+    right: 12%;
+    bottom: 17%;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 4rem;
+
+    color: var(--pink);
+
+    transform: rotate(-15deg);
+
+    animation: gentle-float 5s ease-in-out infinite reverse;
+}
+
+
+/* =========================================
+   TAPE
+========================================= */
+
+.scrap-tape {
+    width: 105px;
+    height: 30px;
+
+    background:
+        rgba(229, 200, 120, 0.55);
+
+    border:
+        1px solid rgba(100, 80, 50, 0.08);
+
+    box-shadow:
+        0 2px 5px rgba(60, 45, 35, 0.05);
+}
+
+
+/* Tape 1 */
+
+.tape-one {
+    top: 14%;
+    right: 10%;
+
+    transform: rotate(12deg);
+}
+
+
+/* Tape 2 */
+
+.tape-two {
+    bottom: 12%;
+    left: 9%;
+
+    transform: rotate(-18deg);
+}
+
+
+/* =========================================
+   15. FLOATING ANIMATION
+========================================= */
+
+@keyframes gentle-float {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -8px;
+    }
+}
+
+
+/* =========================================
+   16. MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 25px 18px;
+    }
+
+
+    #cover .page-content {
+        padding: 50px 20px;
+    }
+
+
+    h1 {
+        font-size: 3.7rem;
+    }
+
+
+    .scrap-star {
+        top: 10%;
+        left: 7%;
+
+        font-size: 2.2rem;
+    }
+
+
+    .scrap-heart {
+        right: 6%;
+        bottom: 12%;
+
+        font-size: 3rem;
+    }
+
+
+    .scrap-tape {
+        width: 75px;
+        height: 24px;
+    }
+
+
+    .tape-one {
+        top: 10%;
+        right: 3%;
+    }
+
+
+    .tape-two {
+        bottom: 8%;
+        left: 3%;
+    }
+
+}
+/* =========================================
+   PHOTO WALL
+========================================= */
+
+#photos {
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(232, 193, 188, 0.25),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(157, 169, 149, 0.25),
+            transparent 25%
+        ),
+        var(--paper);
+}
+
+
+/* -----------------------------------------
+   PHOTO WALL CONTAINER
+----------------------------------------- */
+
+.photo-wall {
+    width: min(800px, 100%);
+
+    margin: 50px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 35px;
+
+    flex-wrap: wrap;
+}
+
+
+/* -----------------------------------------
+   PHOTO CARD
+----------------------------------------- */
+
+.photo-card {
+    width: 220px;
+
+    position: relative;
+
+    padding: 10px 10px 22px;
+
+    background: #fffdf7;
+
+    box-shadow:
+        0 8px 20px var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    cursor: pointer;
+}
+
+
+/* -----------------------------------------
+   PHOTO FRAME
+----------------------------------------- */
+
+.photo-frame {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: var(--paper-dark);
+}
+
+
+/* -----------------------------------------
+   IMAGE
+----------------------------------------- */
+
+.photo-frame img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* -----------------------------------------
+   CAPTION
+----------------------------------------- */
+
+.photo-card p {
+    margin-top: 10px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.35rem;
+
+    line-height: 1;
+}
+
+
+/* -----------------------------------------
+   DIFFERENT PHOTO ROTATIONS
+========================================= */
+
+.photo-one {
+    transform: rotate(-6deg);
+}
+
+.photo-two {
+    transform: rotate(4deg);
+
+    margin-top: 45px;
+}
+
+.photo-three {
+    transform: rotate(-2deg);
+
+    margin-top: 0;
+}
+
+
+/* -----------------------------------------
+   HOVER
+========================================= */
+
+.photo-card:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg);
+
+    box-shadow:
+        0 18px 30px var(--shadow);
+
+    z-index: 5;
+}
+
+
+.photo-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* -----------------------------------------
+   SECTION TEXT
+========================================= */
+
+#photos h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
+    line-height: 0.9;
+
+    margin-bottom: 15px;
+}
+
+
+.section-intro {
+    opacity: 0.65;
+}
+
+
+/* -----------------------------------------
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .photo-wall {
+        gap: 25px;
+    }
+
+
+    .photo-card {
+        width: min(280px, 85vw);
+    }
+
+
+    .photo-two {
+        margin-top: 0;
+    }
+
+}
+/* =========================================
+   PHOTO LIGHTBOX
+========================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    background: rgba(40, 30, 25, 0.75);
+}
+
+
+/* -----------------------------------------
+   LIGHTBOX CONTENT
+----------------------------------------- */
+
+.lightbox-content {
+    max-width: 700px;
+
+    width: 100%;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* -----------------------------------------
+   LARGE IMAGE
+----------------------------------------- */
+
+#lightbox-image {
+    max-width: 100%;
+
+    max-height: 75vh;
+
+    object-fit: contain;
+
+    background: white;
+
+    padding: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3);
+
+    transform: rotate(-1deg);
+}
+
+
+/* -----------------------------------------
+   CAPTION
+----------------------------------------- */
+
+#lightbox-caption {
+    margin-top: 18px;
+
+    color: white;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.7rem;
+}
+
+
+/* -----------------------------------------
+   CLOSE BUTTON
+----------------------------------------- */
+
+.close-lightbox {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    z-index: 101;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--paper);
+
+    color: var(--brown);
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .lightbox {
+        padding: 20px;
+    }
+
+
+    #lightbox-image {
+        max-height: 65vh;
+    }
+
+
+    #lightbox-caption {
+        font-size: 1.5rem;
+    }
+
+}
+/* =========================================
+   HIDDEN ELEMENTS
+========================================= */
+
+.hidden {
+    display: none;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+/* =========================================
+   SCRAPBOOK PAPER EFFECT
+========================================= */
+
+#photos {
+    background-color: var(--paper);
+
+    background-image:
+        radial-gradient(
+            rgba(73, 59, 50, 0.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 18px 18px;
+}
+/* =========================================
+   PHOTO TAPE
+========================================= */
+
+.photo-tape {
+    position: absolute;
+
+    height: 22px;
+
+    border: 1px solid rgba(100, 80, 50, 0.08);
+
+    z-index: 10;
+}
+
+
+/* -----------------------------------------
+   TAPE — PHOTO 1
+----------------------------------------- */
+
+.photo-one .photo-tape {
+    width: 78px;
+
+    top: -8px;
+    left: 50%;
+
+    background: rgba(229, 200, 120, 0.65);
+
+    transform: translateX(-50%) rotate(-4deg);
+}
+
+
+/* -----------------------------------------
+   TAPE — PHOTO 2
+----------------------------------------- */
+
+.photo-two .photo-tape {
+    width: 62px;
+
+    top: -9px;
+    left: 43%;
+
+    background: rgba(232, 193, 188, 0.60);
+
+    transform: translateX(-50%) rotate(7deg);
+}
+
+
+/* -----------------------------------------
+   TAPE — PHOTO 3
+----------------------------------------- */
+
+.photo-three .photo-tape {
+    width: 88px;
+
+    top: -8px;
+    left: 56%;
+
+    background: rgba(157, 169, 149, 0.60);
+
+    transform: translateX(-50%) rotate(-8deg);
+}
+/* =========================================
+   MEMORY TIMELINE
+========================================= */
+
+#timeline {
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(232, 193, 188, 0.25),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(157, 169, 149, 0.22),
+            transparent 25%
+        ),
+        var(--paper);
+}
+
+
+/* -----------------------------------------
+   TITLE
+----------------------------------------- */
+
+#timeline h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
+    line-height: 0.9;
+
+    margin-bottom: 15px;
+}
+
+
+/* -----------------------------------------
+   TIMELINE CONTAINER
+----------------------------------------- */
+
+.timeline {
+    width: min(650px, 100%);
+
+    margin: 60px auto;
+
+    position: relative;
+
+    padding: 10px 0;
+}
+
+
+/* -----------------------------------------
+   THE STRING
+----------------------------------------- */
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background: #9b897b;
+
+    transform: translateX(-50%);
+
+    opacity: 0.5;
+}
+
+
+/* -----------------------------------------
+   MEMORY
+----------------------------------------- */
+
+.memory {
+    position: relative;
+
+    width: 50%;
+
+    padding: 20px 35px;
+
+    margin-bottom: 35px;
+}
+
+
+/* Odd memories — left */
+
+.memory:nth-child(odd) {
+    left: 0;
+
+    text-align: right;
+}
+
+
+/* Even memories — right */
+
+.memory:nth-child(even) {
+    left: 50%;
+}
+
+
+/* -----------------------------------------
+   PIN
+----------------------------------------- */
+
+.memory-pin {
+    position: absolute;
+
+    top: 30px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.2rem;
+
+    color: var(--pink);
+
+    background: var(--paper-light);
+
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+
+/* Left pin */
+
+.memory:nth-child(odd) .memory-pin {
+    right: -15px;
+}
+
+
+/* Right pin */
+
+.memory:nth-child(even) .memory-pin {
+    left: -15px;
+}
+
+
+/* -----------------------------------------
+   MEMORY CARD
+----------------------------------------- */
+
+.memory-card {
+    position: relative;
+
+    padding: 25px;
+
+    background: #fffdf7;
+
+    box-shadow:
+        0 7px 18px var(--shadow);
+
+    border: 1px solid rgba(73, 59, 50, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Slightly imperfect cards */
+
+.memory:nth-child(1) .memory-card {
+    transform: rotate(-2deg);
+}
+
+.memory:nth-child(2) .memory-card {
+    transform: rotate(2deg);
+}
+
+.memory:nth-child(3) .memory-card {
+    transform: rotate(-1deg);
+}
+
+
+/* Hover */
+
+.memory-card:hover {
+    transform:
+        translateY(-6px)
+        rotate(0deg);
+
+    box-shadow:
+        0 15px 25px var(--shadow);
+}
+
+
+/* -----------------------------------------
+   NUMBER
+----------------------------------------- */
+
+.memory-number {
+    font-family: "Caveat", cursive;
+
+    font-size: 1.2rem;
+
+    opacity: 0.55;
+}
+
+
+/* -----------------------------------------
+   MEMORY TITLE
+----------------------------------------- */
+
+.memory-card h3 {
+    font-family: "Caveat", cursive;
+
+    font-size: 2rem;
+
+    margin: 5px 0 10px;
+}
+
+
+/* -----------------------------------------
+   MEMORY TEXT
+----------------------------------------- */
+
+.memory-card p {
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    opacity: 0.8;
+}
+
+
+/* -----------------------------------------
+   DATE
+----------------------------------------- */
+
+.memory-date {
+    display: block;
+
+    margin-top: 15px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.1rem;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   MOBILE TIMELINE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .timeline {
+        padding-left: 35px;
+    }
+
+
+    .timeline::before {
+        left: 12px;
+    }
+
+
+    .memory,
+    .memory:nth-child(odd),
+    .memory:nth-child(even) {
+
+        width: 100%;
+
+        left: 0;
+
+        padding:
+            20px 0 20px 35px;
+
+        text-align: left;
+    }
+
+
+    .memory:nth-child(odd) .memory-pin,
+    .memory:nth-child(even) .memory-pin {
+
+        left: -3px;
+
+        right: auto;
+    }
+
+}
+/* =========================================
+   THINGS I LIKE ABOUT YOU
+========================================= */
+
+#things {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(229, 200, 120, 0.2),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(232, 193, 188, 0.25),
+            transparent 25%
+        ),
+        var(--paper);
+}
+
+
+/* -----------------------------------------
+   TITLE
+----------------------------------------- */
+
+#things h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
+    line-height: 0.9;
+
+    margin-bottom: 15px;
+}
+
+
+/* -----------------------------------------
+   NOTES CONTAINER
+----------------------------------------- */
+
+.notes-container {
+    width: min(800px, 100%);
+
+    margin: 55px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+
+    padding: 20px;
+}
+
+
+/* -----------------------------------------
+   NOTE
+----------------------------------------- */
+
+.note {
+    position: relative;
+
+    min-height: 210px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* -----------------------------------------
+   NOTE COLORS
+----------------------------------------- */
+
+.note-one {
+    background: #f4df9d;
+
+    transform: rotate(-3deg);
+}
+
+.note-two {
+    background: #e8c1bc;
+
+    transform: rotate(2deg);
+}
+
+.note-three {
+    background: #cdd5c4;
+
+    transform: rotate(-2deg);
+}
+
+.note-four {
+    background: #f2e6c8;
+
+    transform: rotate(4deg);
+}
+
+
+/* -----------------------------------------
+   NOTE NUMBER
+----------------------------------------- */
+
+.note-number {
+    font-family: "Caveat", cursive;
+
+    font-size: 1.2rem;
+
+    opacity: 0.55;
+
+    margin-bottom: 8px;
+}
+
+
+/* -----------------------------------------
+   NOTE TITLE
+----------------------------------------- */
+
+.note h3 {
+    font-family: "Caveat", cursive;
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+}
+
+
+/* -----------------------------------------
+   NOTE TEXT
+----------------------------------------- */
+
+.note p {
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    opacity: 0.8;
+}
+
+
+/* -----------------------------------------
+   CLICK HINT
+----------------------------------------- */
+
+.note-hint {
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.1rem;
+
+    opacity: 0.55;
+}
+
+
+/* -----------------------------------------
+   HOVER
+----------------------------------------- */
+
+.note:hover {
+    transform:
+        translateY(-8px)
+        rotate(0deg);
+
+    box-shadow:
+        0 16px 28px var(--shadow);
+
+    z-index: 5;
+}
+
+
+/* -----------------------------------------
+   ACTIVE NOTE
+----------------------------------------- */
+
+.note.active {
+    transform:
+        scale(1.05)
+        rotate(0deg);
+
+    box-shadow:
+        0 20px 35px var(--shadow);
+
+    z-index: 10;
+}
+
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media (max-width: 650px) {
+
+    .notes-container {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 10px;
+    }
+
+
+    .note {
+        min-height: 180px;
+    }
+
+}
+/* =========================================
+   FLIP NOTES
+========================================= */
+
+.note {
+    min-height: 210px;
+
+    perspective: 1000px;
+
+    padding: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border: none;
+}
+
+
+/* The rotating object */
+
+.note-inner {
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    transition: transform 0.6s ease;
+
+    transform-style: preserve-3d;
+}
+
+
+/* Flip when clicked */
+
+.note.flipped .note-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* Both sides */
+
+.note-front,
+.note-back {
+    position: absolute;
+
+    inset: 0;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: left;
+
+    backface-visibility: hidden;
+
+    box-shadow:
+        0 8px 18px var(--shadow);
+}
+
+
+/* Front */
+
+.note-front {
+    background: #f4df9d;
+}
+
+
+/* Back */
+
+.note-back {
+    background: #fffdf7;
+
+    transform: rotateY(180deg);
+}
+
+
+/* Different colours */
+
+.note-two .note-front {
+    background: #e8c1bc;
+}
+
+.note-three .note-front {
+    background: #cdd5c4;
+}
+
+.note-four .note-front {
+    background: #f2e6c8;
+}
+
+
+/* Titles */
+
+.note h3 {
+    font-family: "Caveat", cursive;
+
+    font-size: 2rem;
+
+    margin: 5px 0;
+}
+
+
+/* Back message */
+
+.note-back p {
+    font-size: 1rem;
+
+    line-height: 1.7;
+
+    opacity: 0.85;
+}
+
+
+/* Hint */
+
+.note-hint {
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.1rem;
+
+    opacity: 0.55;
+}
+
+
+/* Hover */
+
+.note:hover {
+    z-index: 5;
+}
+
+.note:hover .note-inner {
+    transform: translateY(-6px);
+}
+
+
+/* Don't apply hover lift while flipped */
+
+.note.flipped:hover .note-inner {
+    transform:
+        translateY(-6px)
+        rotateY(180deg);
+}
+/* =========================================
+   LETTER PAGE
+========================================= */
+
+#letter {
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(232, 193, 188, 0.2),
+            transparent 25%
+        ),
+        var(--paper);
+}
+
+
+/* -----------------------------------------
+   LETTER PAGE WRAPPER
+----------------------------------------- */
+
+.letter-page {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* -----------------------------------------
+   LETTER PAPER
+----------------------------------------- */
+
+.letter-paper {
+    position: relative;
+
+    width: min(680px, 92%);
+
+    margin: 45px auto;
+
+    padding:
+        65px
+        70px
+        60px;
+
+    background:
+        linear-gradient(
+            rgba(255, 253, 247, 0.95),
+            rgba(250, 245, 231, 0.95)
+        );
+
+    box-shadow:
+        0 15px 35px var(--shadow);
+
+    border:
+        1px solid
+        rgba(73, 59, 50, 0.08);
+
+    transform: rotate(-0.7deg);
+}
+
+
+/* -----------------------------------------
+   PAPER EDGE
+----------------------------------------- */
+
+.letter-paper::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border:
+        1px solid
+        rgba(73, 59, 50, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* -----------------------------------------
+   DECORATION
+----------------------------------------- */
+
+.letter-decoration {
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    font-size: 1.5rem;
+
+    opacity: 0.45;
+
+    transform: rotate(10deg);
+}
+
+
+/* -----------------------------------------
+   DATE
+----------------------------------------- */
+
+.letter-date {
+    font-family: "Caveat", cursive;
+
+    font-size: 1.2rem;
+
+    opacity: 0.6;
+
+    margin-bottom: 35px;
+}
+
+
+/* -----------------------------------------
+   LETTER TITLE
+----------------------------------------- */
+
+.letter-paper h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(2.5rem, 6vw, 4rem);
+
+    font-weight: 600;
+
+    margin-bottom: 30px;
+}
+
+
+/* -----------------------------------------
+   LETTER CONTENT
+----------------------------------------- */
+
+.letter-content {
+    font-family: "Caveat", cursive;
+
+    font-size: 1.45rem;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+
+.letter-content p {
+    margin-bottom: 25px;
+}
+
+
+/* -----------------------------------------
+   SIGNATURE
+----------------------------------------- */
+
+.signature {
+    margin-top: 45px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.8rem;
+
+    text-align: right;
+
+    transform: rotate(-3deg);
+}
+
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media (max-width: 650px) {
+
+    .letter-paper {
+        padding:
+            50px
+            30px
+            45px;
+    }
+
+
+    .letter-content {
+        font-size: 1.25rem;
+
+        line-height: 1.7;
+    }
+
+}
+/* =========================================
+   FINAL ENVELOPE
+========================================= */
+
+#final {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(232, 193, 188, 0.25),
+            transparent 30%
+        ),
+        var(--paper);
+}
+
+
+.final-page {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+#final h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
+    margin-bottom: 5px;
+}
+
+
+.final-intro {
+    opacity: 0.7;
+
+    margin-bottom: 45px;
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+.envelope-wrapper {
+    width: 300px;
+    height: 210px;
+
+    margin: 50px auto;
+
+    perspective: 1000px;
+}
+
+
+.envelope {
+    position: relative;
+
+    width: 300px;
+    height: 210px;
+
+    cursor: pointer;
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.letter-inside {
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 15px;
+
+    width: 250px;
+    height: 170px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: #fffdf7;
+
+    box-shadow:
+        0 5px 15px var(--shadow);
+
+    text-align: center;
+
+    z-index: 1;
+
+    transition:
+        transform 0.8s ease;
+}
+
+
+.letter-inside p {
+    font-family: "Caveat", cursive;
+
+    font-size: 1.6rem;
+
+    margin-top: 25px;
+}
+
+
+.letter-inside span {
+    font-size: 0.75rem;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   ENVELOPE BODY
+========================================= */
+
+.envelope-body {
+    position: absolute;
+
+    inset: 0;
+
+    background: #e2b4b0;
+
+    box-shadow:
+        0 12px 25px var(--shadow);
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   ENVELOPE FLAP
+========================================= */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 300px;
+    height: 120px;
+
+    background: #edccc8;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top center;
+
+    z-index: 4;
+
+    transition:
+        transform 0.8s ease;
+}
+
+
+/* =========================================
+   SEAL
+========================================= */
+
+.envelope-seal {
+    position: absolute;
+
+    left: 50%;
+    top: 105px;
+
+    width: 45px;
+    height: 45px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #b97976;
+
+    color: white;
+
+    font-size: 1.3rem;
+
+    z-index: 5;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/* =========================================
+   OPEN
+========================================= */
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+
+    z-index: 0;
+}
+
+
+.envelope.open .letter-inside {
+    transform: translateY(-140px);
+
+    z-index: 6;
+}
+
+
+.envelope.open .envelope-seal {
+    opacity: 0;
+}
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.final-message {
+    width: min(600px, 90%);
+
+    margin-top: 70px;
+
+    animation:
+        messageAppear 0.8s ease;
+}
+
+
+.final-message h1 {
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(3.5rem, 8vw, 6rem);
+
+    margin: 15px 0;
+}
+
+
+.final-message p {
+    max-width: 500px;
+
+    margin: 15px auto;
+
+    line-height: 1.7;
+}
+
+
+.final-signature {
+    display: block;
+
+    margin-top: 30px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 1.8rem;
+
+    transform: rotate(-3deg);
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
